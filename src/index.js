@@ -121,8 +121,9 @@ const generateRandomSudoku = (givenNumbers) => {
       }
     }
   }
-  const sudoku = JSON.parse(JSON.stringify(userSudoku));
-  return sudoku;
+  sudoku = JSON.parse(JSON.stringify(userSudoku));
+
+  return sudoku
 }
   
 
@@ -140,10 +141,26 @@ const createSudoku = (generatedSudoku, solvedSudoku) => {
           const { id, innerHTML} = e.target;
           let row = id[1];
           let col = id[3];
-          generatedSudoku[row][col] = Number(innerHTML);
+          let number = Number(innerHTML);
+          if (number < 10 || number > 0) {
+            generatedSudoku[row][col] = number;
+          } else {
+            alert('Enter a valid number between 1 and 9');
+            newSquare.innerHTML = '';
+          }
           if (JSON.stringify(generatedSudoku) === JSON.stringify(solvedSudoku)) {
             alert('Congrats!')
           }
+        })
+        newSquare.addEventListener('keydown', (e) => {
+          let count = 0;
+          if (!e.code >= 49 && !e.code <= 57) {
+            alert('Enter valid number');
+          }
+          if (count !== 0) {
+            alert('You can only enter one number');
+          }
+          count++;
         })
       } else {
         newSquare.innerHTML = square;
@@ -170,15 +187,13 @@ const createSudoku2 = (generatedSudoku) => {
   })
 }
 
-const sudokus = genButton.addEventListener('click', () => {
+genButton.addEventListener('click', () => {
   let randomSudoku = generateRandomSudoku(30);
   let viewSudoku = JSON.parse(JSON.stringify(randomSudoku));
 
   console.log(solveSudoku(randomSudoku));
 
   if (solveSudoku(randomSudoku)) {
-    console.log(randomSudoku);
     createSudoku(viewSudoku, randomSudoku);
-    return {viewSudoku, randomSudoku};
   }
 });
