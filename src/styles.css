@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  height: 90vh;
+}
+
+button {
+  height: 100px;
+  width: 200px;
+  font-size: xx-large;
+}
+
+#app, #solved {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px 50px;
+  width: 360px;
+  height: 360px;
+  box-shadow: 1px 1px 1px 1px black;
+}
+
+.smallSquare {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  box-shadow: 1px 1px 1px 1px black;
+  outline: 0px;
+  font-size: xx-large;
+  color: transparent;
+  text-shadow: 0 0 0 #333333;
+}
+
+.smallSquare:hover {
+  background-color: gray;
+  opacity: 0.1;
+}
+
+.smallSquare:active {
+  background-color: white;
+}
+
+/* Media queries */
+
+@media screen and (min-width: 768px) and (min-height: 550px) {
+  body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    border: 1px solid black;
+    height: 100vh;
+  }
+  #app, #solved {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px 10px;
+    width: 630px;
+    height: 630px;
+    box-shadow: 1px 1px 1px 1px black;
+  }
+
+  .smallSquare {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    box-shadow: 1px 1px 1px 1px black;
+    outline: 0px;
+    font-size: xx-large;
+    color: transparent;
+    text-shadow: 0 0 0 #333333;
+  }
+}
+
+@media screen and (max-height: 700px) and (min-height: 500px) {
+  body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    border: 1px solid black;
+    height: 100vh;
+  }
+  #app, #solved {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px 15px;
+    width: 450px;
+    height: 450px;
+    box-shadow: 1px 1px 1px 1px black;
+  }
+
+  .smallSquare {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    box-shadow: 1px 1px 1px 1px black;
+    outline: 0px;
+    font-size: xx-large;
+    color: transparent;
+    text-shadow: 0 0 0 #333333;
+  }
+
+  button {
+    margin-top: 5px;
+    height: 50px;
+    width: 100px;
+    font-size: small;
+  }
+}
